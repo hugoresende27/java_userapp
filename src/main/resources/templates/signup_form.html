@@ -15,22 +15,45 @@
 <div class="container text-center">
     <h1>User registration sign up</h1>
     <div>
-        <form th:action="@{/process_register}" th:method="post" th:object="${user}" style="max-width: 600px; margin: 0 auto;">
-            <div class="form-group row">
+        <form th:action="@{/process_register}" th:method="post" th:object="${user}"
+              style="max-width: 600px; margin: 0 auto;">
+            <div class="form-group row m-3">
                 <label for="inputEmail" class="col-form-label col-4">Email address</label>
                 <div class="col-8">
-                    <input type="email" class="form-control" id="inputEmail"  placeholder="Enter email">
+                    <input type="email" class="form-control" id="inputEmail"  placeholder="Enter email"
+                    th:field="*{email}" required />
                 </div>
 
             </div>
-            <div class="form-group row">
+            <div class="form-group row  m-3">
                 <label for="inputPass" class="col-form-label col-4">Password</label>
                 <div class="col-8">
-                    <input type="password" class="form-control" id="inputPass" placeholder="Password">
+                    <input type="password" class="form-control" id="inputPass" placeholder="Password"
+                           th:field="*{password}" required minlength="2" maxlength="10" >
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group row m-3">
+                <label for="inputFirstName" class="col-form-label col-4">First Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="inputFirstName"  placeholder="First Name here"
+                           th:field="*{firstName}" required minlength="2" maxlength="20">
+                </div>
+
+            </div>
+
+            <div class="form-group row m-3">
+                <label for="inputLastName" class="col-form-label col-4">Last Name</label>
+                <div class="col-8">
+                    <input type="text" class="form-control" id="inputLastName"  placeholder="Last Name here"
+                           th:field="*{lastName}" required minlength="2" maxlength="20">
+                </div>
+
+            </div>
+
+            <div class="text-center m-3">
+                <button type="submit" class="btn btn-primary ">Submit</button>
+            </div>
         </form>
     </div>
 </div>
