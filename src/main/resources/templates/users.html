@@ -9,7 +9,7 @@
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
 
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <title>Welcome to codejava.net</title>
+    <title>Users</title>
 </head>
 <body>
 <div class="container text-center">
@@ -20,6 +20,37 @@
             <a th:href="@{/register}">Register</a>
             <a th:href="@{/login}">Login</a>
         </h3>
+
+        <form th:action="@{/logout}" method="post">
+
+            <p> Welcome <b th:text="${fullName}"></b></p>
+            <input type="submit" value="Sign Out" />
+        </form>
+        <h1>List of users</h1>
+        <div>
+            <table class="table table-dark table-bordered">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user: ${listUsers}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.LastName}"></td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+
     </div>
 </div>
 
